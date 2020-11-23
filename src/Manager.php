@@ -4,6 +4,7 @@ namespace Vsch\TranslationManager;
 
 use Carbon\Carbon;
 use Exception;
+use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Events\Dispatcher;
@@ -100,7 +101,7 @@ class Manager
 
     public const JSON_GROUP = 'JSON';
 
-    public function __construct(Application $app, Filesystem $files, Dispatcher $dispatchesEvents, ITranslatorRepository $translatorRepository)
+    public function __construct(Application $app, Filesystem $files, DispatcherContract $dispatchesEvents, ITranslatorRepository $translatorRepository)
     {
         $this->app = $app;
         $this->translatorRepository = $translatorRepository;
